@@ -1,0 +1,2 @@
+To start any program on start up of windows, put it in the :
+" C:\Users\kamal pc\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup "
