@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 url = raw_input("Enter a website to extract the URL's from: ")
-r  = requests.get("http://" +url)
+r  = requests.get(url)
 data = r.text
 
 soup = BeautifulSoup(data)
@@ -15,9 +15,17 @@ soup = BeautifulSoup(data)
     #print(link.text)
 
 
-gdata=soup.find_all("font")
+gdata=soup.find_all("p")
 #gdata=soup.find_all("div",{"class":"info"})
 #print(gdata)
 
-for item in gdata:
-    print(item.text)
+fo=open("E:/ML/test/Dataset/e.txt",'a')
+
+data=[]
+for item in gdata: 
+    data.append(item.text)
+
+for i in range(0,len(data)):
+    fo.write(data[i].encode('utf-8')+"\n")
+
+print("Written to file.")
